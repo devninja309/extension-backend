@@ -98,7 +98,9 @@ export const createAttribute = (req, res) => {
   })
 
   myPromise.then((result) => {
-    Users.bulkCreate(result)
+    Users.bulkCreate(result).then(() => {
+      res.sendStatus(200)
+    })
   })
   // try {
   //   english.map((item, index) => {
